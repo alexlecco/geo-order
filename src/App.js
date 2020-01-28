@@ -6,6 +6,11 @@ import List from './List';
 const mainPoint = {latitude: -26.8283728, longitude: -65.2224645}
 const listPoints = [
   {
+    address: "Globant",
+    location: {latitude: -26.799365, longitude: -65.3052238},
+    distance: 0
+  },
+  {
     address: "Bernabé Araoz 1198",
     location: {latitude: -26.834210, longitude: -65.216603},
     distance: 0
@@ -34,7 +39,12 @@ const listPoints = [
     address: "Gustavo",
     location: {latitude: -26.8852156, longitude: -65.2309537},
     distance: 0
-  }
+  },
+  {
+    address: "Rolling Code",
+    location: {latitude: -26.8366196, longitude: -65.2093675},
+    distance: 0
+  },
 ]
 
 function App() {
