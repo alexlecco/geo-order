@@ -5,7 +5,7 @@ export default class ListItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mainLocation: {latitude: -26.8283728, longitude: -65.220337} // Miguel Lillo 40
+      mainLocation: {latitude: -26.8283728, longitude: -65.2224645} // Miguel Lillo 40
     }
   }
 
