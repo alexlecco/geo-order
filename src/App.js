@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 
 import List from './List';
@@ -47,16 +47,47 @@ const listPoints = [
   },
 ]
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p> Lista ordenada </p>
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      position: {}
+    }
+  }
 
-        <List mainPoint={mainPoint} listPoints={listPoints}/>
-      </header>
-    </div>
-  );
+  componentWillMount() {
+    this.getLocation();
+  }
+
+  success(position) {
+    const latitude  = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    const img = new Image();
+    img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+
+    alert("latitude: " + latitude + ", longitude: " + longitude)
+  };
+
+  error() {
+    alert("Unable to retrieve your location")
+  };
+  
+  getLocation() {
+    navigator.geolocation.getCurrentPosition(this.success, this.error);
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <p> Posición actual: { mainPoint.latitude }, { mainPoint.longitude } </p>
+  
+          <List mainPoint={mainPoint} listPoints={listPoints}/>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
